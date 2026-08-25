@@ -647,51 +647,6 @@
       color: var(--muted);
     }
 
-    .flow-board {
-      display: grid;
-      gap: 18px;
-    }
-
-    .flow-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .flow-row.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .flow-step {
-      position: relative;
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      min-height: 220px;
-    }
-
-    .flow-step::after {
-      content: "→";
-      position: absolute;
-      right: -15px;
-      top: 44%;
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #fff;
-      border: 1px solid var(--line);
-      color: var(--blue);
-      font-weight: 800;
-      z-index: 1;
-    }
-
-    .flow-row .flow-step:last-child::after {
-      display: none;
-    }
-
     .flow-kicker {
       color: var(--muted);
       font-size: 13px;
@@ -699,48 +654,190 @@
       margin-bottom: 10px;
     }
 
-    .flow-num {
-      width: 34px;
-      height: 34px;
+    .sop-compare {
+      display: grid;
+      gap: 22px;
+    }
+
+    .sop-lane {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .sop-lane-old {
+      background: linear-gradient(180deg, #f4f6f8 0%, #eef2f6 100%);
+    }
+
+    .sop-lane-new {
+      background: linear-gradient(180deg, #eef5ff 0%, #f8fbff 100%);
+      border-color: #c9daf8;
+    }
+
+    .sop-lane-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .sop-lane-head h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .sop-lane-head p {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sop-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .sop-step {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .sop-step::after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: var(--blue-soft);
-      color: var(--blue);
+      background: inherit;
+      border: 1px solid currentColor;
+      color: #97a3b6;
       font-weight: 800;
-      margin-bottom: 16px;
+      z-index: 1;
     }
 
-    .flow-step h3 {
-      margin-bottom: 10px;
+    .sop-step:last-child::after {
+      display: none;
     }
 
-    .flow-step ul {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .flow-step li + li {
-      margin-top: 8px;
-    }
-
-    .connector-note {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .mini-card {
+    .sop-lane-new .sop-step::after {
+      color: var(--blue);
       background: #fff;
-      border: 1px solid var(--line);
-      padding: 22px;
+      border-color: #bfd2f6;
     }
 
-    .mini-card p {
-      margin: 8px 0 0;
+    .sop-step-weak {
+      background: #f8fafc;
+      border-color: #dde4ec;
+    }
+
+    .sop-step-strong {
+      border-width: 2px;
+      border-color: #8fb5f2;
+      box-shadow: 0 18px 50px rgba(31, 111, 235, 0.08);
+    }
+
+    .sop-step-highlight {
+      background: linear-gradient(180deg, #ffffff 0%, #eef5ff 100%);
+      border-width: 2px;
+      border-color: #1f6feb;
+      box-shadow: 0 18px 50px rgba(31, 111, 235, 0.14);
+    }
+
+    .sop-step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sop-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #f3f7fc;
+      color: #4d5f77;
+      flex: none;
+    }
+
+    .sop-lane-new .sop-icon {
+      background: #dbeafe;
+      color: var(--blue);
+    }
+
+    .sop-step-title {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .sop-step-subtitle {
+      margin: 2px 0 0;
       color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .sop-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .sop-upgrade {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      padding: 8px 20px;
+      text-align: center;
+    }
+
+    .sop-upgrade-arrow {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #e8f1ff 0%, #dbeafe 100%);
+      color: var(--blue);
+      font-size: 28px;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .sop-upgrade h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .sop-upgrade p {
+      margin: 0;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .sop-conclusion {
+      margin-top: 18px;
+      padding: 20px 24px;
+      border: 1px solid #c9daf8;
+      background: linear-gradient(180deg, #ffffff 0%, #f2f7ff 100%);
+      box-shadow: var(--shadow);
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--ink);
     }
 
     .loop-line {
@@ -811,6 +908,42 @@
       font-size: 14px;
     }
 
+    .value-panel {
+      margin-top: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 22px;
+    }
+
+    .value-panel h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .value-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .value-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+      padding: 16px;
+    }
+
+    .value-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .footer {
       border-top: 1px solid var(--line);
       padding-top: 24px;
@@ -830,9 +963,9 @@
       .pie-grid,
       .strategy-grid,
       .stage-grid,
-      .flow-row,
-      .connector-note,
+      .sop-steps,
       .loop-line,
+      .value-strip,
       .version-strip {
         grid-template-columns: 1fr;
       }
@@ -850,7 +983,7 @@
         text-align: left;
       }
 
-      .flow-step::after,
+      .sop-step::after,
       .loop-node::after {
         display: none;
       }
@@ -1183,126 +1316,171 @@
     </section>
 
     <section>
-      <h2>系统运作 SOP</h2>
-      <p class="section-kicker"><strong>运作方式：</strong>把“输入参考稿 → 在 Skill 约束下生成 HTML → 设计自验 → 研发验收 → 版本沉淀”做成统一 SOP，让每个项目都走同一条可复用链路。</p>
-      <div class="flow-board">
-        <div class="flow-row">
-          <div class="flow-step">
-            <div class="flow-kicker">输入层</div>
-            <div class="flow-num">1</div>
-            <h3>任务触发与来源识别</h3>
-            <p>任务进入系统后，先判断参考来源，统一进入后续生成流程。</p>
-            <ul>
-              <li>线上页面：直接抓取结构和样式。</li>
-              <li>截图或视觉稿：走截图拆解与还原。</li>
-              <li>统一补充页面状态、业务边界和交付说明。</li>
-            </ul>
+      <h2>SOP 流程升级</h2>
+      <p class="section-kicker"><strong>职责变化：</strong>设计交付从静态设计稿升级为可直接呈现的视觉交互效果，研发职责从页面还原 + 功能开发，转向接口 + 业务逻辑开发。</p>
+      <div class="sop-compare">
+        <div class="sop-lane sop-lane-old">
+          <div class="sop-lane-head">
+            <h3>旧 SOP</h3>
+            <p>旧链路下，研发同时承担页面还原与功能实现，页面交付边界相对模糊。</p>
           </div>
-          <div class="flow-step">
-            <div class="flow-kicker">生成层</div>
-            <div class="flow-num">2</div>
-            <h3>在 Skill 约束下生成高还原 HTML</h3>
-            <p>HTML 生成阶段即纳入 Skill 与组件库规则，确保输出结果既高还原，又能进入正式交付链路。</p>
-            <ul>
-              <li>同步完成页面还原与组件映射。</li>
-              <li>自动补齐 token、slot、状态和命名规范。</li>
-              <li>输出组件库约束下的 HTML 交付稿。</li>
-            </ul>
-          </div>
-          <div class="flow-step">
-            <div class="flow-kicker">验证层</div>
-            <div class="flow-num">3</div>
-            <h3>设计先完成视觉自验</h3>
-            <p>设计先完成视觉和状态校验，保证提交给研发前已经达到设计交付标准。</p>
-            <ul>
-              <li>核对版式、间距、层级和交互状态。</li>
-              <li>确认组件映射没有破坏视觉表现。</li>
-              <li>整理特殊说明和边界条件。</li>
-            </ul>
+          <div class="sop-steps">
+            <div class="sop-step">
+              <div class="sop-step-head">
+                <div class="sop-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M14 3.5V8h4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="sop-step-title">产品</h3>
+                  <p class="sop-step-subtitle">输入 PRD</p>
+                </div>
+              </div>
+              <p>输出 PRD，定义业务目标、功能范围与核心需求。</p>
+            </div>
+            <div class="sop-step">
+              <div class="sop-step-head">
+                <div class="sop-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M8 19h8M10 16v3M14 16v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="M8 9h8M8 12h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="sop-step-title">设计</h3>
+                  <p class="sop-step-subtitle">输出设计稿</p>
+                </div>
+              </div>
+              <p>交付静态设计稿，主要表达页面视觉与交互意图。</p>
+            </div>
+            <div class="sop-step sop-step-weak">
+              <div class="sop-step-head">
+                <div class="sop-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="m9 8-4 4 4 4M15 8l4 4-4 4M13.5 5l-3 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="sop-step-title">研发</h3>
+                  <p class="sop-step-subtitle">页面还原 + 功能开发</p>
+                </div>
+              </div>
+              <p>根据 PRD + 设计稿，同时负责页面代码还原和功能逻辑实现。</p>
+            </div>
           </div>
         </div>
 
-        <div class="flow-row two">
-          <div class="flow-step">
-            <div class="flow-kicker">验收层</div>
-            <div class="flow-num">4</div>
-            <h3>提交 HTML 给研发验收</h3>
-            <p>设计自验通过后，再进入研发验收，确认 HTML 满足接入和维护要求。</p>
-            <ul>
-              <li>校验组件合规性、代码结构和扩展性。</li>
-              <li>问题回流到设计与 Skill 规则侧修正。</li>
-              <li>沉淀差异点，作为下一轮优化输入。</li>
-            </ul>
+        <div class="sop-upgrade">
+          <div class="sop-upgrade-arrow">↓</div>
+          <h3>职责升级</h3>
+          <p>设计交付从「设计稿」升级为「可直接呈现的视觉交互效果」</p>
+        </div>
+
+        <div class="sop-lane sop-lane-new">
+          <div class="sop-lane-head">
+            <h3>新 SOP</h3>
+            <p>新链路下，设计负责体验呈现，研发聚焦接口与业务逻辑，职责边界更清晰。</p>
           </div>
-          <div class="flow-step">
-            <div class="flow-kicker">沉淀层</div>
-            <div class="flow-num">5</div>
-            <h3>保存 HTML 版本记录</h3>
-            <p>每次输出都以版本节点保存，形成可回溯、可对比、可复用的设计交付资产库。</p>
-            <ul>
-              <li>保存 HTML、截图对照和关键注释。</li>
-              <li>记录 Skill 版本、映射规则和异常处理。</li>
-              <li>支持回退、对比和跨项目复用。</li>
-            </ul>
+          <div class="sop-steps">
+            <div class="sop-step">
+              <div class="sop-step-head">
+                <div class="sop-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M14 3.5V8h4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="sop-step-title">产品</h3>
+                  <p class="sop-step-subtitle">输入 PRD</p>
+                </div>
+              </div>
+              <p>输出 PRD，持续定义业务目标、功能边界与接口需求。</p>
+            </div>
+            <div class="sop-step sop-step-strong">
+              <div class="sop-step-head">
+                <div class="sop-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <rect x="3.5" y="5" width="17" height="10.5" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M8 19h8M10.5 15.5V19M13.5 15.5V19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="M7 10.5h10M7 8h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="sop-step-title">设计</h3>
+                  <p class="sop-step-subtitle">前端 / 客户端视觉交互效果</p>
+                </div>
+              </div>
+              <p>直接输出可呈现的前端 / 客户端视觉交互效果，承担体验表达与页面呈现职责。</p>
+            </div>
+            <div class="sop-step sop-step-highlight">
+              <div class="sop-step-head">
+                <div class="sop-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="m8.5 8.5-3.5 3.5 3.5 3.5M15.5 8.5 19 12l-3.5 3.5M12.5 7h3a2 2 0 0 1 2 2v1.5M11.5 17h-3a2 2 0 0 1-2-2v-1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9.5v5M9.5 12h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="sop-step-title">研发</h3>
+                  <p class="sop-step-subtitle">接口 + 业务逻辑开发</p>
+                </div>
+              </div>
+              <p>聚焦功能接口对接与业务逻辑实现，不再承担主要的页面还原工作。</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="connector-note">
-        <div class="mini-card">
-          <h3>管理价值 1：统一入口</h3>
-          <p>无论来自线上代码还是截图，都会进入同一套 HTML 生成与验收机制，降低流程分叉和协作成本。</p>
-        </div>
-        <div class="mini-card">
-          <h3>管理价值 2：沉淀资产</h3>
-          <p>最终产物不再只是一次性页面，而是可运行、可回溯、可继续复用的 HTML 设计资产，为后续项目持续提效。</p>
-        </div>
-      </div>
+      <div class="sop-conclusion">设计负责体验呈现，研发聚焦功能实现。</div>
     </section>
 
     <section>
-      <h2>能力迭代与版本回溯</h2>
-      <p class="section-kicker"><strong>长期价值：</strong>每次项目都会留下可复用样本，持续驱动 Skill 与组件库升级，让后续页面生成越来越快、越来越稳。</p>
+      <h2>升级后的价值</h2>
+      <p class="section-kicker"><strong>核心变化：</strong>设计交付升级后，团队价值不再只是更快做页面，而是让分工更清晰、交付更稳定、研发更聚焦。</p>
       <div class="loop-line">
         <div class="loop-node">
-          <strong>异常样本收集</strong>
-          <p>记录映射不足、还原误差和需要人工修正的场景。</p>
+          <strong>职责更清晰</strong>
+          <p>产品管需求，设计管体验呈现，研发管功能实现，协作边界更明确。</p>
         </div>
         <div class="loop-node">
-          <strong>共建规则补齐</strong>
-          <p>与研发共建组件规则、结构约束和生成策略，持续更新 Skill。</p>
+          <strong>交付更高效</strong>
+          <p>设计直接输出可呈现效果，减少研发重复还原页面的时间消耗。</p>
         </div>
         <div class="loop-node">
-          <strong>新能力发布</strong>
-          <p>将新组件、新模板和新规则投入下一轮生成流程，减少重复劳动。</p>
+          <strong>还原更稳定</strong>
+          <p>体验表达更接近最终结果，页面落地偏差和反复确认会下降。</p>
         </div>
         <div class="loop-node">
-          <strong>下一轮复用</strong>
-          <p>后续任务直接复用历史版本和映射经验，形成更稳定的 HTML 输出链路。</p>
+          <strong>复用更容易</strong>
+          <p>设计输出更接近可复用资产，后续页面可以直接沿用已有成果。</p>
         </div>
       </div>
 
-      <div class="version-track">
-        <h3>版本记录示意</h3>
-        <div class="version-strip">
-          <div class="version-card">
-            <strong>V0 参考输入</strong>
-            <p>线上页面或截图原始输入，作为还原目标。</p>
+      <div class="value-panel">
+        <h3>最终带来的结果</h3>
+        <div class="value-strip">
+          <div class="value-card">
+            <strong>设计负责体验呈现</strong>
+            <p>交付内容从设计稿升级为更接近真实结果的视觉交互效果。</p>
           </div>
-          <div class="version-card">
-            <strong>V1 受约束还原版</strong>
-            <p>在 Skill 与组件库约束下直接生成高还原 HTML。</p>
+          <div class="value-card">
+            <strong>研发聚焦功能实现</strong>
+            <p>研发从页面还原中抽离，集中投入接口对接与业务逻辑开发。</p>
           </div>
-          <div class="version-card">
-            <strong>V2 研发验收版</strong>
-            <p>经设计自验和研发验收后的可交付 HTML 版本。</p>
-          </div>
-          <div class="version-card">
-            <strong>V3 迭代增强版</strong>
-            <p>补齐新能力后回写设计系统，保留可回溯对照关系。</p>
+          <div class="value-card">
+            <strong>团队协作更顺畅</strong>
+            <p>减少跨角色反复沟通与返工，让整体交付链路更顺、更稳。</p>
           </div>
         </div>
       </div>
+
+      <div class="sop-conclusion">设计负责体验呈现，研发聚焦功能实现。</div>
     </section>
 
     <div class="footer">
